@@ -1,13 +1,20 @@
 <template>
     <div>
-        hello
+        <home-header></home-header>
+        <home-swiper></home-swiper>
     </div>
 </template>
 <script>
-/* eslint-disable */ 
+/* eslint-disable */
+import HomeHeader from './components/Header' 
+import HomeSwiper from './components/Swiper' 
 export default {
-    name: 'Home'
+    name: 'Home',
+    components: {
+        HomeHeader,
+        HomeSwiper
+    }
 }
 </script>
-<style lang='scss' scoped>
+<style lang='stylus' scoped>
 </style>
