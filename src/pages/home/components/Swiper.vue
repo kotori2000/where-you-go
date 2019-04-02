@@ -39,6 +39,7 @@ export default {
     height: 0
     padding-bottom: 66.73%
     background: #ccc
+    box-shadow: 0 .14rem .14rem rgba(0, 0, 0, .15)
     .swiper-img
         width: 100%
 </style>
