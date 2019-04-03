@@ -1,22 +1,14 @@
 <template>
     <ul class="list">
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
-        <li class="item">A</li>
+        <li class="item" v-for="(item, key) of cities" :key="key">{{key}}</li>
     </ul>
 </template>
 <script>
 /* eslint-disable */
 export default {
+    props: {
+        cities: Object
+    },
     name: 'CityAlpahbet'
 }
 </script>
