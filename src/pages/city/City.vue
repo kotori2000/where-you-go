@@ -1,62 +1,63 @@
 <template>
-    <div>
-        <city-header></city-header>
-        <city-search
-        :cities="cities"
-        ></city-search>
-        <city-list
-        :cities="cities"
-        :hot="hotCities"
-        :letter="letter"></city-list>
-        <city-Alpahbet
-        :cities="cities"
-        @change="handleLetterChange"></city-Alpahbet>
-    </div>
+  <div>
+    <city-header></city-header>
+    <city-search :cities="cities"></city-search>
+    <city-list
+      :cities="cities"
+      :hot="hotCities"
+      :letter="letter"
+    ></city-list>
+    <city-alphabet
+      :cities="cities"
+      @change="handleLetterChange"
+    ></city-alphabet>
+  </div>
 </template>
+
 <script>
-/* eslint-disable */
 import axios from 'axios'
 import CityHeader from './components/Header'
 import CitySearch from './components/Search'
 import CityList from './components/List'
-import CityAlpahbet from './components/Alpahbet'
+import CityAlphabet from './components/Alphabet'
 export default {
-  name: 'city',
+  name: 'City',
   components: {
     CityHeader,
     CitySearch,
     CityList,
-    CityAlpahbet
+    CityAlphabet
   },
   data () {
-      return {
-          cities: {},
-          hotCities: [],
-          letter: ''
-      }
+    return {
+      cities: {},
+      hotCities: [],
+      letter: ''
+    }
   },
   methods: {
-      handleLetterChange(letter) {
-          this.letter = letter
-      },
-      getCityInfo () {
-          axios.get('/api/city.json')
-            .then(this.handleGetCityInfoSucc)
-      },
-      handleGetCityInfoSucc (res) {
-          res = res.data
-          if (res.ret && res.data) {
-             const data = res.data
-             this.cities = data.cities
-             this.hotCities = data.hotCities
-          }
-
+    getCityInfo () {
+      axios.get('/api/city.json')
+        .then(this.handleGetCityInfoSucc)
+    },
+    handleGetCityInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.cities = data.cities
+        this.hotCities = data.hotCities
       }
+    },
+    handleLetterChange (letter) {
+      this.letter = letter
+    }
   },
   mounted () {
-      this.getCityInfo()
+    this.getCityInfo()
   }
 }
 </script>
-<style lang='stylus' scoped>
+
+<style lang="stylus" scoped>
+
 </style>

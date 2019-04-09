@@ -1,4 +1,4 @@
-# where-you-go
+# travel
 
 > A Vue.js project
 
